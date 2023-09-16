@@ -1,4 +1,4 @@
-const { Contact } = require("../utils/validation/contactValidationSchemas");
+const { Contact } = require("../utils/validation");
 const { HttpError, ctrlWrapper } = require("../helpers");
 const getAll = async (req, res) => {
   const result = await Contact.find();
@@ -35,9 +35,9 @@ const updateStatusContact = async (req, res) => {
     new: true,
   });
   if (!result) {
-    throw new HttpError(400, "missing field favorite");
+    throw new HttpError(404, "Missing field favorite");
   }
-  res.status(200).json(result);
+  res.json(result);
 };
 const deleteById = async (req, res) => {
   const { contactId } = req.params;
