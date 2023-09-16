@@ -1,13 +1,9 @@
-class ApiError extends Error {
-  constructor(message) {
+class HttpError extends Error {
+  constructor(message, status) {
     super(message);
-    this.name = ApiError;
+    this.name = "HttpError";
+    this.status = status;
   }
 }
-const HttpError = (status, message) => {
-  const error = new ApiError(message);
-  error.status = status;
-  return error;
-};
 
 module.exports = HttpError;
