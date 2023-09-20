@@ -4,10 +4,11 @@ const getAll = async (req, res) => {
   const { _id: owner } = req.user;
   const { page = 1, limit = 20 } = req.query;
   const skip = (page - 1) * limit;
-  const result = await Contact.find({ owner }, { skip, limit }).populate(
-    "owner",
-    "email password"
-  );
+  const result = await Contact.find(
+    { owner },
+    { name: 1, email: 1, phone: 1, favorite: 1, owner: 1 },
+    { skip, limit }
+  ).populate("owner", "email password");
   res.json(result);
 };
 
