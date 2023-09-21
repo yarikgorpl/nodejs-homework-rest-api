@@ -1,6 +1,15 @@
 const schemas = require("./contactValidationSchemas");
 const Contact = require("./mongooseValidationSchema");
 const User = require("./userValidationSchema");
-const userSchemas = require("./authValidationSchema");
+const {
+  registrationValidationSchema,
+  loginValidationSchema,
+} = require("./authValidationSchema");
 
-module.exports = { Contact, schemas, User, userSchemas };
+module.exports = {
+  Contact,
+  schemas,
+  User,
+  registrationValidationSchema,
+  loginValidationSchema,
+};
