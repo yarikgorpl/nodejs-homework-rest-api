@@ -4,6 +4,7 @@ const User = require("./userValidationSchema");
 const {
   registrationValidationSchema,
   loginValidationSchema,
+  emailValidationSchema,
 } = require("./authValidationSchema");
 
 module.exports = {
@@ -12,4 +13,5 @@ module.exports = {
   User,
   registrationValidationSchema,
   loginValidationSchema,
+  emailValidationSchema,
 };
