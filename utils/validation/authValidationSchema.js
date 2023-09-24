@@ -9,4 +9,12 @@ const loginValidationSchema = Joi.object({
   password: Joi.string().required(),
 });
 
-module.exports = { registrationValidationSchema, loginValidationSchema };
+const emailValidationSchema = Joi.object({
+  email: Joi.string().required(),
+});
+
+module.exports = {
+  registrationValidationSchema,
+  loginValidationSchema,
+  emailValidationSchema,
+};
